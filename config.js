@@ -5,7 +5,7 @@
 
 const CONFIG = {
   // ⚙️ Step 1: Paste your Google Apps Script Web App URL here after deployment
-  API_URL: "https://script.google.com/macros/s/AKfycbzxBCfq9Mo2t_EDFV9Kfjpb7NEIF2iciInJmYdOGGLhr28PFIsM_d5vdAekKsg477DTNw/exec",
+  API_URL: "https://script.google.com/macros/s/AKfycbzylgWXN14Mm_oXPChSF8so2ncnsstHj0ND9E-1SpDE2WLgi2PpXPGPTY_NlVNQlRtubA/exec",
 
   // ⚙️ Step 2: Paste your GitHub Pages URL here after publishing
   SITE_URL: "https://manu220883.github.io/reunion99",
