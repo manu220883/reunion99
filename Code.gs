@@ -149,11 +149,6 @@ function submitLocationVote(p) {
 
   var ss    = SpreadsheetApp.getActiveSpreadsheet();
   var sheet = ss.getSheetByName("LocationVotes");
-  var data  = sheet.getDataRange().getValues();
-
-  for (var i = 1; i < data.length; i++) {
-    if (data[i][1] === voterId) throw new Error("You have already voted for a location.");
-  }
 
   sheet.appendRow([new Date().toISOString(), voterId, name, location]);
   return { message: "Vote recorded!" };
@@ -170,11 +165,6 @@ function submitDateVote(p) {
 
   var ss    = SpreadsheetApp.getActiveSpreadsheet();
   var sheet = ss.getSheetByName("DateVotes");
-  var data  = sheet.getDataRange().getValues();
-
-  for (var i = 1; i < data.length; i++) {
-    if (data[i][1] === voterId) throw new Error("You have already voted for a date.");
-  }
 
   sheet.appendRow([new Date().toISOString(), voterId, name, date]);
   return { message: "Vote recorded!" };

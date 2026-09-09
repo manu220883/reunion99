@@ -94,7 +94,6 @@ function demoDB(action, p) {
   }
 
   if (action === "submitLocationVote") {
-    if (localStorage.getItem("r99_loc_voted")) throw new Error("You have already voted for a location.");
     const lv = store("locVotes") || {};
     lv[p.location] = (lv[p.location] || 0) + 1;
     save("locVotes", lv);
@@ -102,7 +101,6 @@ function demoDB(action, p) {
   }
 
   if (action === "submitDateVote") {
-    if (localStorage.getItem("r99_date_voted")) throw new Error("You have already voted for a date.");
     const dv = store("dateVotes") || {};
     dv[p.date] = (dv[p.date] || 0) + 1;
     save("dateVotes", dv);
@@ -209,45 +207,26 @@ function initScrollReveal() {
 
 // ── Poll: Location ───────────────────────────────────────────
 async function submitLocationVote(location) {
-  if (localStorage.getItem("r99_loc_voted")) {
-    showToast("You have already voted! ❤️", "info");
-    await loadAndShowLocationResults();
-    return;
-  }
-
   const name = (document.getElementById("locationVoterName").value || "").trim();
   setLoading("locationPollVoting", true);
-
   try {
     await callAPI("submitLocationVote", { voterId: VOTER_ID, name, location });
-    localStorage.setItem("r99_loc_voted", "1");
     launchConfetti();
     showToast("Vote recorded! Thank you ❤️", "success");
-    await loadAndShowLocationResults(true);
+    await loadAndShowLocationResults();
   } catch (err) {
-    if (err.message.includes("already voted")) {
-      localStorage.setItem("r99_loc_voted", "1");
-      await loadAndShowLocationResults();
-    } else {
-      showToast(err.message, "error");
-    }
+    showToast(err.message, "error");
   } finally {
     setLoading("locationPollVoting", false);
   }
 }
 
-async function loadAndShowLocationResults(fromVote = false) {
+async function loadAndShowLocationResults() {
   try {
     const data = await callAPI("getPollResults");
     renderLocationResults(data);
-    document.getElementById("locationPollVoting").style.display = "none";
     document.getElementById("locationPollResults").style.display = "block";
-    if (fromVote) {
-      document.getElementById("locationPollMessage").style.display = "block";
-    }
-  } catch (err) {
-    showToast("Could not load results. Try again.", "error");
-  }
+  } catch (_) {}
 }
 
 function renderLocationResults(data) {
@@ -279,45 +258,26 @@ function renderLocationResults(data) {
 
 // ── Poll: Date ───────────────────────────────────────────────
 async function submitDateVote(date) {
-  if (localStorage.getItem("r99_date_voted")) {
-    showToast("You have already voted! ❤️", "info");
-    await loadAndShowDateResults();
-    return;
-  }
-
   const name = (document.getElementById("dateVoterName").value || "").trim();
   setLoading("datePollVoting", true);
-
   try {
     await callAPI("submitDateVote", { voterId: VOTER_ID, name, date });
-    localStorage.setItem("r99_date_voted", "1");
     launchConfetti();
     showToast("Date vote recorded! Thank you ❤️", "success");
-    await loadAndShowDateResults(true);
+    await loadAndShowDateResults();
   } catch (err) {
-    if (err.message.includes("already voted")) {
-      localStorage.setItem("r99_date_voted", "1");
-      await loadAndShowDateResults();
-    } else {
-      showToast(err.message, "error");
-    }
+    showToast(err.message, "error");
   } finally {
     setLoading("datePollVoting", false);
   }
 }
 
-async function loadAndShowDateResults(fromVote = false) {
+async function loadAndShowDateResults() {
   try {
     const data = await callAPI("getPollResults");
     renderDateResults(data);
-    document.getElementById("datePollVoting").style.display = "none";
     document.getElementById("datePollResults").style.display = "block";
-    if (fromVote) {
-      document.getElementById("datePollMessage").style.display = "block";
-    }
-  } catch (err) {
-    showToast("Could not load results. Try again.", "error");
-  }
+  } catch (_) {}
 }
 
 function renderDateResults(data) {
@@ -584,12 +544,10 @@ function esc(str) {
 
 // ── Restore state on page load ───────────────────────────────
 function restoreVotingState() {
-  if (localStorage.getItem("r99_loc_voted")) {
-    loadAndShowLocationResults();
-  }
-  if (localStorage.getItem("r99_date_voted")) {
-    loadAndShowDateResults();
-  }
+  // Always show live results on load so people can see standings
+  loadAndShowLocationResults();
+  loadAndShowDateResults();
+
   if (localStorage.getItem("r99_registered")) {
     const form    = document.getElementById("registrationForm");
     const success = document.getElementById("registrationSuccess");
