@@ -25,7 +25,7 @@ function handleRequest(e) {
 
   try {
     // Auto-create sheets if this is the first deployment (setupSheets() not yet run)
-    var _ss = SpreadsheetApp.getActiveSpreadsheet();
+    var _ss = SpreadsheetApp.openById("1IMUHstImYIBmkWZe-PuuY7Vwg-Pk8_U1GCxDYbYv1j0");
     if (!_ss.getSheetByName("LocationVotes")) {
       setupSheets();
     }
@@ -73,7 +73,7 @@ function handleRequest(e) {
 // Run this function once from the Apps Script editor (▶ Run button)
 // before deploying as a web app.
 function setupSheets() {
-  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var ss = SpreadsheetApp.openById("1IMUHstImYIBmkWZe-PuuY7Vwg-Pk8_U1GCxDYbYv1j0");
 
   var sheets = [
     { name: "Attendees",      headers: ["Timestamp","Name","Nickname","Phone","City","Attendance","Message","VoterID"] },
@@ -122,7 +122,7 @@ function submitAttendee(p) {
   if (phone.length < 6) throw new Error("Please enter a valid phone / WhatsApp number.");
   if (!attendance)      throw new Error("Please select your attendance.");
 
-  var ss    = SpreadsheetApp.getActiveSpreadsheet();
+  var ss    = SpreadsheetApp.openById("1IMUHstImYIBmkWZe-PuuY7Vwg-Pk8_U1GCxDYbYv1j0");
   var sheet = ss.getSheetByName("Attendees");
   var data  = sheet.getDataRange().getValues();
 
@@ -147,7 +147,7 @@ function submitLocationVote(p) {
   var valid = ["Bangalore", "Bhadravathi", "Either"];
   if (valid.indexOf(location) === -1) throw new Error("Invalid choice.");
 
-  var ss    = SpreadsheetApp.getActiveSpreadsheet();
+  var ss    = SpreadsheetApp.openById("1IMUHstImYIBmkWZe-PuuY7Vwg-Pk8_U1GCxDYbYv1j0");
   var sheet = ss.getSheetByName("LocationVotes");
 
   sheet.appendRow([new Date().toISOString(), voterId, name, location]);
@@ -163,7 +163,7 @@ function submitDateVote(p) {
   if (!voterId) throw new Error("Voter ID missing.");
   if (!date)    throw new Error("Please select a date.");
 
-  var ss    = SpreadsheetApp.getActiveSpreadsheet();
+  var ss    = SpreadsheetApp.openById("1IMUHstImYIBmkWZe-PuuY7Vwg-Pk8_U1GCxDYbYv1j0");
   var sheet = ss.getSheetByName("DateVotes");
 
   sheet.appendRow([new Date().toISOString(), voterId, name, date]);
@@ -178,7 +178,7 @@ function submitMemory(p) {
   if (name.length < 2)    throw new Error("Please enter your name.");
   if (memory.length < 10) throw new Error("Please share a memory (at least 10 characters).");
 
-  var ss    = SpreadsheetApp.getActiveSpreadsheet();
+  var ss    = SpreadsheetApp.openById("1IMUHstImYIBmkWZe-PuuY7Vwg-Pk8_U1GCxDYbYv1j0");
   var sheet = ss.getSheetByName("Memories");
   sheet.appendRow([new Date().toISOString(), name, memory]);
   return { message: "Memory added!" };
@@ -186,7 +186,7 @@ function submitMemory(p) {
 
 // ── GET ATTENDEES ───────────────────────────────────────────
 function getAttendees() {
-  var ss    = SpreadsheetApp.getActiveSpreadsheet();
+  var ss    = SpreadsheetApp.openById("1IMUHstImYIBmkWZe-PuuY7Vwg-Pk8_U1GCxDYbYv1j0");
   var sheet = ss.getSheetByName("Attendees");
   var data  = sheet.getDataRange().getValues();
   if (data.length <= 1) return [];
@@ -199,7 +199,7 @@ function getAttendees() {
 
 // ── GET POLL RESULTS ─────────────────────────────────────────
 function getPollResults() {
-  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var ss = SpreadsheetApp.openById("1IMUHstImYIBmkWZe-PuuY7Vwg-Pk8_U1GCxDYbYv1j0");
 
   var locSheet = ss.getSheetByName("LocationVotes");
   var locRows  = locSheet.getLastRow() > 1
@@ -233,7 +233,7 @@ function getPollResults() {
 
 // ── GET MEMORIES ─────────────────────────────────────────────
 function getMemories() {
-  var ss    = SpreadsheetApp.getActiveSpreadsheet();
+  var ss    = SpreadsheetApp.openById("1IMUHstImYIBmkWZe-PuuY7Vwg-Pk8_U1GCxDYbYv1j0");
   var sheet = ss.getSheetByName("Memories");
   var data  = sheet.getDataRange().getValues();
   if (data.length <= 1) return [];
@@ -245,7 +245,7 @@ function getMemories() {
 
 // ── GET SETTINGS ─────────────────────────────────────────────
 function getSettings() {
-  var ss    = SpreadsheetApp.getActiveSpreadsheet();
+  var ss    = SpreadsheetApp.openById("1IMUHstImYIBmkWZe-PuuY7Vwg-Pk8_U1GCxDYbYv1j0");
   var sheet = ss.getSheetByName("Settings");
   var data  = sheet.getDataRange().getValues();
   var settings = {};
