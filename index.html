@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eswaramma High School – Class of '99 Reunion</title>
+  <meta name="description" content="Join the Eswaramma High School Class of 1999 as we come together to celebrate friendship, memories and the journey since school.">
+
+  <!-- Open Graph / WhatsApp Preview -->
+  <meta property="og:type"        content="website">
+  <meta property="og:title"       content="Eswaramma High School – Class of '99 Reunion">
+  <meta property="og:description" content="25+ Years. One Batch. Countless Memories. Join us in November 2026!">
+  <meta property="og:image"       content="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=1200&q=80">
+  <meta name="twitter:card"       content="summary_large_image">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Dancing+Script:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Confetti library -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ═══════════════════════ NAVIGATION ═══════════════════════ -->
+<nav id="navbar" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-logo" onclick="scrollToSection('hero');return false;">
+      <span class="nav-logo-hs">EHS</span>
+      <span class="nav-logo-year">'99</span>
+    </a>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#memories"    onclick="closeMenu();scrollToSection('memories');return false;">Memories</a></li>
+      <li><a href="#poll-location" onclick="closeMenu();scrollToSection('poll-location');return false;">Poll</a></li>
+      <li><a href="#register"    onclick="closeMenu();scrollToSection('register');return false;">RSVP</a></li>
+      <li><a href="#classmates"  onclick="closeMenu();scrollToSection('classmates');return false;">Classmates</a></li>
+      <li><a href="#gallery"     onclick="closeMenu();scrollToSection('gallery');return false;">Gallery</a></li>
+      <li><a href="#teachers"    onclick="closeMenu();scrollToSection('teachers');return false;">Teachers</a></li>
+    </ul>
+
+    <button class="hamburger" id="hamburger" aria-label="Open menu" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+
+<!-- ═══════════════════════ HERO ═══════════════════════════════ -->
+<section id="hero" class="section-hero">
+
+  <!-- Animated vintage background photograph frames -->
+  <!-- REPLACE src values with actual school photos — keep the .hero-frame class -->
+  <div class="hero-photo-wall" aria-hidden="true">
+    <div class="hero-frame hero-frame--1">
+      <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=400&q=75&fit=crop" alt="School building" loading="lazy">
+      <span class="frame-label">Our School</span>
+    </div>
+    <div class="hero-frame hero-frame--2">
+      <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=400&q=75&fit=crop" alt="Classroom days" loading="lazy">
+      <span class="frame-label">1997 Class</span>
+    </div>
+    <div class="hero-frame hero-frame--3">
+      <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?w=400&q=75&fit=crop" alt="School friends" loading="lazy">
+      <span class="frame-label">Best Days</span>
+    </div>
+    <div class="hero-frame hero-frame--4">
+      <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=400&q=75&fit=crop" alt="School memories" loading="lazy">
+      <span class="frame-label">1999 Batch</span>
+    </div>
+    <div class="hero-frame hero-frame--5">
+      <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=400&q=75&fit=crop" alt="School days" loading="lazy">
+      <span class="frame-label">Those Days</span>
+    </div>
+  </div>
+
+  <div class="hero-overlay" aria-hidden="true"></div>
+
+  <div class="hero-content">
+    <p class="hero-school-label animate-hero-1">✦ Eswaramma High School ✦</p>
+    <h1 class="hero-title animate-hero-2">
+      CLASS OF&nbsp;'99<br>
+      <em>REUNION</em>
+    </h1>
+    <p class="hero-subtitle animate-hero-3">25+ Years. One Batch. Countless Memories.</p>
+
+    <div class="hero-theme animate-hero-4">
+      <span class="theme-line"></span>
+      <span class="theme-text">"Back to Where It All Began"</span>
+      <span class="theme-line"></span>
+    </div>
+
+    <div class="hero-actions animate-hero-5">
+      <button class="btn-primary btn-pulse" onclick="scrollToSection('register')">
+        I'm In! &nbsp;❤️
+      </button>
+      <button class="btn-outline" onclick="scrollToSection('poll-location')">
+        Vote for the Reunion
+      </button>
+    </div>
+  </div>
+
+  <div class="hero-scroll" aria-hidden="true">
+    <span>Scroll to explore</span>
+    <div class="scroll-chevron"></div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════ NOSTALGIA ════════════════════════ -->
+<section id="memories" class="section nostalgia-section" data-anim>
+  <div class="container">
+    <div class="section-header">
+      <p class="section-tag">Close your eyes and go back…</p>
+      <h2 class="section-title">Do You Remember?</h2>
+    </div>
+
+    <div class="memory-cards-grid">
+
+      <div class="memory-card" data-anim-child>
+        <div class="memory-card-icon" style="background:linear-gradient(135deg,#f9c97c,#e8a040)">🚶</div>
+        <h3>First Day of School</h3>
+        <p>The butterflies, the crisp uniform, the smell of a brand-new textbook…</p>
+      </div>
+
+      <div class="memory-card" data-anim-child>
+        <div class="memory-card-icon" style="background:linear-gradient(135deg,#7ec8e3,#3a9fbf)">🕶️</div>
+        <h3>Morning Assembly</h3>
+        <p>Standing in rows, singing the national anthem, the principal's stern gaze…</p>
+      </div>
+
+      <div class="memory-card" data-anim-child>
+        <div class="memory-card-icon" style="background:linear-gradient(135deg,#f4a5c0,#c96b8c)">😄</div>
+        <h3>Classroom Mischief</h3>
+        <p>Notes passed under desks, chalk dusters flying, laughter barely stifled…</p>
+      </div>
+
+      <div class="memory-card" data-anim-child>
+        <div class="memory-card-icon" style="background:linear-gradient(135deg,#a8e063,#56ab2f)">🍱</div>
+        <h3>Lunch Breaks</h3>
+        <p>Racing to the canteen, sharing tiffin boxes, the best gossip sessions…</p>
+      </div>
+
+      <div class="memory-card" data-anim-child>
+        <div class="memory-card-icon" style="background:linear-gradient(135deg,#f7971e,#ffd200)">🏆</div>
+        <h3>School Competitions</h3>
+        <p>Quiz bowls, elocution, debates — we were all secretly competitive…</p>
+      </div>
+
+      <div class="memory-card" data-anim-child>
+        <div class="memory-card-icon" style="background:linear-gradient(135deg,#f953c6,#b91d73)">🏃</div>
+        <h3>Sports Day</h3>
+        <p>The relay race, the cheering crowd, House competitions we bled for…</p>
+      </div>
+
+      <div class="memory-card" data-anim-child>
+        <div class="memory-card-icon" style="background:linear-gradient(135deg,#667eea,#764ba2)">📚</div>
+        <h3>Teachers Who Shaped Us</h3>
+        <p>Their lessons went far beyond the syllabus and into our lives…</p>
+      </div>
+
+      <div class="memory-card" data-anim-child>
+        <div class="memory-card-icon" style="background:linear-gradient(135deg,#f7b733,#fc4a1a)">👫</div>
+        <h3>Friends Who Became Family</h3>
+        <p>Some bonds forged in those corridors have never, ever broken…</p>
+      </div>
+
+      <div class="memory-card" data-anim-child>
+        <div class="memory-card-icon" style="background:linear-gradient(135deg,#11998e,#38ef7d)">👋</div>
+        <h3>The Last Day</h3>
+        <p>Did we know then that it would never quite be the same again?</p>
+      </div>
+
+    </div>
+
+    <div class="nostalgia-quote" data-anim-child>
+      <p>"We left school as students.<br>We return as a family."</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════ EVENT DETAILS ════════════════════ -->
+<section id="details" class="section details-section" data-anim>
+  <div class="container">
+    <div class="section-header">
+      <p class="section-tag">Mark your calendar</p>
+      <h2 class="section-title">Reunion Details</h2>
+    </div>
+
+    <div class="details-grid">
+      <div class="detail-card" data-anim-child>
+        <div class="detail-icon">📅</div>
+        <div class="detail-label">Month</div>
+        <div class="detail-value">November 2026</div>
+      </div>
+      <div class="detail-card" data-anim-child>
+        <div class="detail-icon">🎓</div>
+        <div class="detail-label">Batch</div>
+        <div class="detail-value">Class of 1999</div>
+      </div>
+      <div class="detail-card" data-anim-child>
+        <div class="detail-icon">🏫</div>
+        <div class="detail-label">School</div>
+        <div class="detail-value">Eswaramma High School</div>
+      </div>
+    </div>
+
+    <p class="details-note" data-anim-child>
+      📢 The final date and venue will be confirmed based on the class poll below.
+      <br>Make your vote count!
+    </p>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════ LOCATION POLL ════════════════════ -->
+<section id="poll-location" class="section poll-section" data-anim>
+  <div class="container">
+    <div class="section-header">
+      <p class="section-tag">🗳️ Cast your vote</p>
+      <h2 class="section-title">Where Should We Meet?</h2>
+      <p class="section-subtitle">Where would you prefer our Class of '99 Reunion?</p>
+      <p class="poll-disclaimer">You can vote once. Choose carefully! ❤️</p>
+    </div>
+
+    <div id="locationPollVoting" class="poll-options">
+      <div class="poll-name-row">
+        <input type="text" id="locationVoterName" placeholder="Your name (optional)" class="poll-name-input" maxlength="60">
+      </div>
+      <div class="poll-choices">
+        <button class="poll-choice" onclick="submitLocationVote('Bangalore')">
+          <span class="choice-icon">📍</span>
+          <span class="choice-label">Bangalore</span>
+          <span class="choice-arrow">→</span>
+        </button>
+        <button class="poll-choice" onclick="submitLocationVote('Bhadravathi')">
+          <span class="choice-icon">📍</span>
+          <span class="choice-label">Bhadravathi</span>
+          <span class="choice-arrow">→</span>
+        </button>
+        <button class="poll-choice" onclick="submitLocationVote('Either')">
+          <span class="choice-icon">❤️</span>
+          <span class="choice-label">Either location works for me</span>
+          <span class="choice-arrow">→</span>
+        </button>
+      </div>
+    </div>
+
+    <div id="locationPollResults" class="poll-results" style="display:none">
+      <h3 class="results-title">Live Results</h3>
+      <div id="locationResultsBars"></div>
+      <p id="locationTotalVotes" class="total-votes"></p>
+    </div>
+
+    <div id="locationPollMessage" class="poll-already-voted" style="display:none">
+      <span>✅</span> Thank you! Your vote has been recorded. ❤️
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════ DATE POLL ═════════════════════════ -->
+<section id="poll-date" class="section poll-section poll-section--alt" data-anim>
+  <div class="container">
+    <div class="section-header">
+      <p class="section-tag">📅 Pick your weekend</p>
+      <h2 class="section-title">When Should We Reunite?</h2>
+      <p class="section-subtitle">Which date in November 2026 works best for you?</p>
+      <p class="poll-disclaimer">You can vote once. Choose carefully! ❤️</p>
+    </div>
+
+    <div id="datePollVoting" class="poll-options">
+      <div class="poll-name-row">
+        <input type="text" id="dateVoterName" placeholder="Your name (optional)" class="poll-name-input" maxlength="60">
+      </div>
+      <div class="poll-choices date-choices">
+        <button class="poll-choice date-choice" onclick="submitDateVote('Sat, Nov 14')">
+          <span class="choice-day">Saturday</span>
+          <span class="choice-date">November 14</span>
+        </button>
+        <button class="poll-choice date-choice" onclick="submitDateVote('Sun, Nov 15')">
+          <span class="choice-day">Sunday</span>
+          <span class="choice-date">November 15</span>
+        </button>
+        <button class="poll-choice date-choice" onclick="submitDateVote('Sat, Nov 21')">
+          <span class="choice-day">Saturday</span>
+          <span class="choice-date">November 21</span>
+        </button>
+        <button class="poll-choice date-choice" onclick="submitDateVote('Sun, Nov 22')">
+          <span class="choice-day">Sunday</span>
+          <span class="choice-date">November 22</span>
+        </button>
+        <button class="poll-choice date-choice" onclick="submitDateVote('Sat, Nov 28')">
+          <span class="choice-day">Saturday</span>
+          <span class="choice-date">November 28</span>
+        </button>
+        <button class="poll-choice date-choice" onclick="submitDateVote('Sun, Nov 29')">
+          <span class="choice-day">Sunday</span>
+          <span class="choice-date">November 29</span>
+        </button>
+      </div>
+    </div>
+
+    <div id="datePollResults" class="poll-results" style="display:none">
+      <h3 class="results-title">Live Results</h3>
+      <div id="dateResultsBars"></div>
+      <p id="dateTotalVotes" class="total-votes"></p>
+    </div>
+
+    <div id="datePollMessage" class="poll-already-voted" style="display:none">
+      <span>✅</span> Thank you! Your vote has been recorded. ❤️
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════ REGISTRATION ═════════════════════ -->
+<section id="register" class="section register-section" data-anim>
+  <div class="container">
+    <div class="section-header">
+      <p class="section-tag">Who's Coming?</p>
+      <h2 class="section-title">Count Me In!</h2>
+      <p class="section-subtitle">Tell us you're coming so we can plan an unforgettable reunion.</p>
+    </div>
+
+    <div id="registrationSuccess" class="success-banner" style="display:none">
+      <div class="success-icon">🎉</div>
+      <h3>You're on the list!</h3>
+      <p>We can't wait to see you. ❤️</p>
+    </div>
+
+    <form id="registrationForm" class="register-form" onsubmit="handleRegistration(event)" novalidate>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="regName">Full Name *</label>
+          <input type="text" id="regName" name="name" placeholder="Your full name" required maxlength="100">
+          <span class="field-error" id="err-name"></span>
+        </div>
+        <div class="form-group">
+          <label for="regNickname">Nickname / School Name</label>
+          <input type="text" id="regNickname" name="nickname" placeholder="What did friends call you?" maxlength="60">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="regPhone">Phone / WhatsApp *</label>
+          <input type="tel" id="regPhone" name="phone" placeholder="+91 98765 43210" required maxlength="20">
+          <span class="field-error" id="err-phone"></span>
+        </div>
+        <div class="form-group">
+          <label for="regCity">Current City</label>
+          <input type="text" id="regCity" name="city" placeholder="Where are you based now?" maxlength="80">
+        </div>
+      </div>
+
+      <div class="form-group attendance-group">
+        <label>Will you attend? *</label>
+        <div class="attendance-options">
+          <label class="attendance-option">
+            <input type="radio" name="attendance" value="Yes" required>
+            <span class="attendance-label yes">Yes ❤️</span>
+          </label>
+          <label class="attendance-option">
+            <input type="radio" name="attendance" value="Maybe">
+            <span class="attendance-label maybe">Maybe 🤔</span>
+          </label>
+          <label class="attendance-option">
+            <input type="radio" name="attendance" value="No">
+            <span class="attendance-label no">Unfortunately No 😢</span>
+          </label>
+        </div>
+        <span class="field-error" id="err-attendance"></span>
+      </div>
+
+      <div class="form-group">
+        <label for="regMessage">Leave a message for your classmates</label>
+        <textarea id="regMessage" name="message" rows="3" placeholder="Something you want your batch to know... 😊" maxlength="500"></textarea>
+      </div>
+
+      <button type="submit" class="btn-primary btn-full" id="registerBtn">
+        <span class="btn-text">I'm Joining the Reunion! ❤️</span>
+        <span class="btn-loading" style="display:none">Saving…</span>
+      </button>
+    </form>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════ CLASSMATES ════════════════════════ -->
+<section id="classmates" class="section classmates-section" data-anim>
+  <div class="container">
+    <div class="section-header">
+      <p class="section-tag">Class of '99</p>
+      <h2 class="section-title">👋 Who's Coming Back?</h2>
+      <p class="section-subtitle">Names confirmed for the reunion</p>
+    </div>
+
+    <div id="classmatesGrid" class="classmates-grid">
+      <!-- Populated by JavaScript -->
+      <div class="classmates-loading">Loading classmates…</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════ GALLERY ══════════════════════════ -->
+<section id="gallery" class="section gallery-section" data-anim>
+  <div class="container">
+    <div class="section-header">
+      <p class="section-tag">Through the years</p>
+      <h2 class="section-title">Gallery</h2>
+    </div>
+
+    <div class="gallery-tabs">
+      <button class="gallery-tab active" data-tab="then" onclick="switchGalleryTab('then', this)">
+        📸 Then
+      </button>
+      <button class="gallery-tab" data-tab="now" onclick="switchGalleryTab('now', this)">
+        ❤️ Now
+      </button>
+      <button class="gallery-tab" data-tab="together" onclick="switchGalleryTab('together', this)">
+        🎉 Together Again
+      </button>
+    </div>
+
+    <!-- THEN -->
+    <div id="gallery-then" class="gallery-grid active-tab">
+      <!-- REPLACE these with actual school photos — add/remove .gallery-item divs freely -->
+      <div class="gallery-item polaroid">
+        <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=400&q=80&fit=crop" alt="Classroom days" loading="lazy" class="vintage-photo">
+        <span class="polaroid-caption">Classroom Days, '97</span>
+      </div>
+      <div class="gallery-item polaroid polaroid--lg">
+        <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=600&q=80&fit=crop" alt="School building" loading="lazy" class="vintage-photo">
+        <span class="polaroid-caption">Our School, 1999</span>
+      </div>
+      <div class="gallery-item polaroid">
+        <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=400&q=80&fit=crop" alt="Study days" loading="lazy" class="vintage-photo">
+        <span class="polaroid-caption">Exam Season 😅</span>
+      </div>
+      <div class="gallery-item polaroid">
+        <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?w=400&q=80&fit=crop" alt="Sports day" loading="lazy" class="vintage-photo">
+        <span class="polaroid-caption">Sports Day '98</span>
+      </div>
+      <div class="gallery-item polaroid polaroid--lg">
+        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&q=80&fit=crop" alt="Graduation" loading="lazy" class="vintage-photo">
+        <span class="polaroid-caption">Last Day, '99 ❤️</span>
+      </div>
+      <div class="gallery-item add-photo-card" onclick="openPhotoUpload()">
+        <div class="add-photo-inner">
+          <span class="add-icon">📷</span>
+          <p>Add Your<br>School Photo</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- NOW -->
+    <div id="gallery-now" class="gallery-grid" style="display:none">
+      <div class="gallery-item polaroid">
+        <img src="https://images.unsplash.com/photo-1522661067900-ab829854a57f?w=400&q=80&fit=crop" alt="Classmate now" loading="lazy">
+        <span class="polaroid-caption">Ravi Kumar, Bangalore</span>
+      </div>
+      <div class="gallery-item polaroid polaroid--lg">
+        <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=600&q=80&fit=crop" alt="Classmate now" loading="lazy">
+        <span class="polaroid-caption">Priya Sharma, Mumbai</span>
+      </div>
+      <div class="gallery-item add-photo-card" onclick="openPhotoUpload()">
+        <div class="add-photo-inner">
+          <span class="add-icon">🤳</span>
+          <p>Share Your<br>Current Photo</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- TOGETHER -->
+    <div id="gallery-together" class="gallery-grid" style="display:none">
+      <div class="gallery-item polaroid together-placeholder">
+        <div class="together-coming-soon">
+          <span>🎉</span>
+          <p>Reunion photos coming soon!</p>
+          <small>November 2026</small>
+        </div>
+        <span class="polaroid-caption">Reunion 2026</span>
+      </div>
+      <div class="gallery-item add-photo-card" onclick="openPhotoUpload()">
+        <div class="add-photo-inner">
+          <span class="add-icon">🎊</span>
+          <p>Upload Reunion<br>Photos</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Photo Upload Modal -->
+    <div id="photoModal" class="modal" style="display:none">
+      <div class="modal-backdrop" onclick="closePhotoUpload()"></div>
+      <div class="modal-box">
+        <button class="modal-close" onclick="closePhotoUpload()">✕</button>
+        <h3>Share a Photo</h3>
+        <p class="modal-hint">Paste a shareable Google Photos or Imgur link below</p>
+        <form id="photoForm" onsubmit="handlePhotoSubmit(event)">
+          <input type="text" id="photoName" placeholder="Your name" required maxlength="80">
+          <input type="url"  id="photoUrl"  placeholder="https://photos.google.com/..." required>
+          <input type="text" id="photoCaption" placeholder="Caption (optional)" maxlength="120">
+          <button type="submit" class="btn-primary btn-full">Share Photo ❤️</button>
+        </form>
+        <div id="photoSuccess" style="display:none" class="success-inline">
+          ✅ Thanks! Your photo link has been received.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════ TEACHERS ═════════════════════════ -->
+<section id="teachers" class="section teachers-section" data-anim>
+  <div class="container">
+    <div class="section-header">
+      <p class="section-tag">With deep gratitude</p>
+      <h2 class="section-title">🙏 The Teachers Who Shaped Us</h2>
+      <p class="teachers-quote">"Every lesson wasn't written on the blackboard.<br>Some were written in our lives."</p>
+    </div>
+
+    <!-- REPLACE placeholder cards with real teacher details — add/remove freely -->
+    <div class="teachers-grid">
+
+      <div class="teacher-card" data-anim-child>
+        <div class="teacher-photo-wrap">
+          <!-- REPLACE: add <img src="teacher-photo.jpg"> here when available -->
+          <div class="teacher-photo-placeholder">👨‍🏫</div>
+        </div>
+        <h3>Add Teacher Name</h3>
+        <p class="teacher-subject">Mathematics</p>
+        <p class="teacher-memory">Edit index.html to add real teacher names, subjects and photos.</p>
+      </div>
+
+      <div class="teacher-card" data-anim-child>
+        <div class="teacher-photo-wrap">
+          <div class="teacher-photo-placeholder">👩‍🏫</div>
+        </div>
+        <h3>Add Teacher Name</h3>
+        <p class="teacher-subject">Science</p>
+        <p class="teacher-memory">Paste teacher memories that classmates share here.</p>
+      </div>
+
+      <div class="teacher-card" data-anim-child>
+        <div class="teacher-photo-wrap">
+          <div class="teacher-photo-placeholder">👨‍🏫</div>
+        </div>
+        <h3>Add Teacher Name</h3>
+        <p class="teacher-subject">English</p>
+        <p class="teacher-memory">Edit this text with a tribute from the batch.</p>
+      </div>
+
+      <div class="teacher-card" data-anim-child>
+        <div class="teacher-photo-wrap">
+          <div class="teacher-photo-placeholder">👩‍🏫</div>
+        </div>
+        <h3>Add Teacher Name</h3>
+        <p class="teacher-subject">Social Studies</p>
+        <p class="teacher-memory">Add your favourite teacher memory here.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════ MEMORY WALL ══════════════════════ -->
+<section id="memory-wall" class="section memory-wall-section" data-anim>
+  <div class="container">
+    <div class="section-header">
+      <p class="section-tag">Your words, your memories</p>
+      <h2 class="section-title">💬 Leave a Memory</h2>
+      <p class="section-subtitle">What's the one moment from school that you still smile about?</p>
+    </div>
+
+    <form id="memoryForm" class="memory-form" onsubmit="handleMemorySubmit(event)">
+      <div class="memory-form-inner">
+        <input type="text" id="memoryName" placeholder="Your name" required maxlength="80">
+        <textarea id="memoryText" placeholder="Share a memory that makes you smile… 😊" rows="3" required maxlength="500"></textarea>
+        <button type="submit" class="btn-primary" id="memoryBtn">
+          <span class="btn-text">Post Memory ❤️</span>
+          <span class="btn-loading" style="display:none">Saving…</span>
+        </button>
+      </div>
+    </form>
+
+    <div id="memoryCards" class="memory-cards">
+      <!-- Populated by JavaScript -->
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════ COUNTDOWN ════════════════════════ -->
+<section id="countdown" class="section countdown-section" data-anim>
+  <div class="container">
+    <p class="countdown-label">THE COUNTDOWN BEGINS…</p>
+    <h2 class="countdown-title">November 2026 Reunion</h2>
+    <div class="countdown-grid">
+      <div class="countdown-unit">
+        <span class="countdown-number" id="cd-days">--</span>
+        <span class="countdown-name">Days</span>
+      </div>
+      <div class="countdown-sep">:</div>
+      <div class="countdown-unit">
+        <span class="countdown-number" id="cd-hours">--</span>
+        <span class="countdown-name">Hours</span>
+      </div>
+      <div class="countdown-sep">:</div>
+      <div class="countdown-unit">
+        <span class="countdown-number" id="cd-minutes">--</span>
+        <span class="countdown-name">Minutes</span>
+      </div>
+      <div class="countdown-sep">:</div>
+      <div class="countdown-unit">
+        <span class="countdown-number" id="cd-seconds">--</span>
+        <span class="countdown-name">Seconds</span>
+      </div>
+    </div>
+    <p class="countdown-sub">Date updates once the class votes! ❤️</p>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════ WHATSAPP INVITE ══════════════════ -->
+<section id="invite" class="section invite-section" data-anim>
+  <div class="container">
+    <div class="invite-inner">
+      <div class="invite-content">
+        <p class="section-tag">Spread the word!</p>
+        <h2>📲 Invite Your Classmates</h2>
+        <p>Someone out there is waiting to hear from you. Share this and bring the whole batch together.</p>
+        <div class="invite-preview">
+          <p class="invite-msg-preview" id="invitePreview">
+            Hey! We're bringing the Eswaramma High School Class of '99 together! 🎓❤️<br>
+            Vote for the location and date — see you there!
+          </p>
+        </div>
+        <button class="btn-whatsapp" onclick="shareOnWhatsApp()">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24" aria-hidden="true">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          Share on WhatsApp
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════ FOOTER ════════════════════════════ -->
+<footer id="footer">
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <p class="footer-school">ESWARAMMA HIGH SCHOOL</p>
+      <p class="footer-batch">CLASS OF &lsquo;99</p>
+    </div>
+    <blockquote class="footer-quote">
+      "Some friendships don't need a reunion.<br>
+      They just need a reason to come together."
+    </blockquote>
+    <div class="footer-links">
+      <a href="#poll-location" onclick="scrollToSection('poll-location');return false;">Vote</a>
+      <span>·</span>
+      <a href="#register"      onclick="scrollToSection('register');return false;">RSVP</a>
+      <span>·</span>
+      <a href="#memory-wall"   onclick="scrollToSection('memory-wall');return false;">Memories</a>
+    </div>
+    <p class="footer-copy">© 2026 Class of '99 &nbsp;·&nbsp; Made with ❤️ for the batch</p>
+  </div>
+</footer>
+
+
+<!-- Floating WhatsApp button -->
+<a id="floatWhatsapp" class="float-whatsapp" href="#" onclick="shareOnWhatsApp();return false;" aria-label="Share on WhatsApp" title="Invite classmates on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28" aria-hidden="true">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<!-- Toast container -->
+<div id="toastContainer" aria-live="polite" aria-atomic="true"></div>
+
+<script src="config.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
