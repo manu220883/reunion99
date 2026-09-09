@@ -636,3 +636,47 @@ async function initApp() {
 }
 
 document.addEventListener("DOMContentLoaded", initApp);
+
+// ── Music Player ─────────────────────────────────────────────
+let ytPlayer = null;
+let musicPlaying = false;
+
+function initYTPlayer() {
+  const id = CONFIG.MUSIC_YOUTUBE_ID;
+  if (!id) return;
+  ytPlayer = new YT.Player("ytplayer", {
+    height: "1", width: "1",
+    videoId: id,
+    playerVars: { autoplay: 0, controls: 0, playsinline: 1, loop: 1, playlist: id },
+    events: {
+      onStateChange: function(e) {
+        if (e.data === YT.PlayerState.ENDED) ytPlayer.playVideo();
+      }
+    }
+  });
+}
+
+function toggleMusic() {
+  if (!ytPlayer) return;
+  if (musicPlaying) {
+    ytPlayer.pauseVideo();
+    musicPlaying = false;
+    document.getElementById("musicBtn").classList.remove("playing");
+  } else {
+    ytPlayer.playVideo();
+    musicPlaying = true;
+    document.getElementById("musicBtn").classList.add("playing");
+  }
+}
+
+(function initMusicWidget() {
+  const id = CONFIG.MUSIC_YOUTUBE_ID;
+  if (!id) {
+    var p = document.getElementById("musicPlayer");
+    if (p) p.style.display = "none";
+    return;
+  }
+  var tag = document.createElement("script");
+  tag.src = "https://www.youtube.com/iframe_api";
+  document.head.appendChild(tag);
+})();

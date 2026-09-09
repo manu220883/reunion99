@@ -19,6 +19,11 @@ const CONFIG = {
   // Format: ISO 8601 — "YYYY-MM-DDTHH:mm:ss"
   COUNTDOWN_DATE: "2026-11-21T10:00:00",
 
+  // ⚙️ Nostalgic background music — YouTube video or playlist ID
+  // Change to any YouTube video ID for a different song
+  // Empty string "" disables the music player
+  MUSIC_YOUTUBE_ID: "5UfA_hGRGz0",  // Raktha Sambandhagala — Jolly Days (Kannada, 1999 era)
+
   // WhatsApp message template — {URL} is replaced with SITE_URL automatically
   WHATSAPP_MESSAGE:
     "Hey! We're bringing the Eswaramma High School Class of '99 together! 🎓❤️\n\n" +

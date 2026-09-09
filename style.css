@@ -697,6 +697,7 @@ input, textarea, select { font: inherit; }
   color: var(--text-body);
   box-shadow: var(--shadow-xs);
   position: relative; overflow: hidden;
+  cursor: pointer;
 }
 .poll-choice::after {
   content: '';
@@ -740,6 +741,7 @@ input, textarea, select { font: inherit; }
   color: var(--navy);
 }
 .date-choice .choice-arrow { display: none; }
+.date-choice:hover { transform: scale(1.03); }
 
 /* ── Poll Results ───────────────────────────────────────────── */
 .poll-results {
@@ -1309,6 +1311,86 @@ input, textarea, select { font: inherit; }
   100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
 }
 .float-whatsapp { animation: waPulse 3s ease-out infinite; }
+
+/* ── Floating Music Player ──────────────────────────────────── */
+.music-player {
+  position: fixed; bottom: 28px; left: 24px; z-index: 900;
+}
+.music-tooltip {
+  position: absolute; bottom: calc(100% + 8px); left: 50%;
+  transform: translateX(-50%);
+  background: var(--navy); color: var(--gold-light);
+  font-size: .72rem; font-weight: 700; letter-spacing: .04em;
+  padding: 5px 12px; border-radius: 20px;
+  white-space: nowrap; pointer-events: none;
+  opacity: 0; transition: opacity .2s, transform .2s;
+  transform: translateX(-50%) translateY(4px);
+  border: 1px solid rgba(196,146,42,.3);
+  box-shadow: 0 4px 12px rgba(0,0,0,.3);
+}
+.music-player:hover .music-tooltip {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+.music-btn {
+  width: 58px; height: 58px;
+  background: linear-gradient(145deg, #1B2B4B 0%, #7B1020 100%);
+  border-radius: 50%;
+  border: 2px solid rgba(196,146,42,.4);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  cursor: pointer; gap: 3px;
+  box-shadow: 0 4px 20px rgba(0,0,0,.45);
+  transition: var(--transition); position: relative;
+}
+.music-btn:hover {
+  transform: scale(1.1);
+  border-color: var(--gold);
+  box-shadow: 0 6px 28px rgba(196,146,42,.3);
+}
+.music-vinyl {
+  width: 34px; height: 34px;
+  background: radial-gradient(circle at 50%, #111 18%, #222 18%, #222 30%, #1B2B4B 30%, #1B2B4B 42%, #222 42%, #222 52%, #111 52%);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  border: 2px solid rgba(196,146,42,.25);
+  box-shadow: 0 2px 8px rgba(0,0,0,.5);
+  flex-shrink: 0;
+  transition: transform .5s;
+}
+.music-btn.playing .music-vinyl {
+  animation: vinylSpin 3s linear infinite;
+}
+@keyframes vinylSpin {
+  to { transform: rotate(360deg); }
+}
+.vinyl-label {
+  font-size: .85rem; line-height: 1;
+  position: relative; z-index: 1;
+}
+.music-bars {
+  display: flex; gap: 2px; align-items: flex-end;
+  height: 10px; opacity: 0; transition: opacity .3s;
+}
+.music-btn.playing .music-bars { opacity: 1; }
+.mbar {
+  width: 3px; background: var(--gold);
+  border-radius: 2px;
+  animation: mbarBounce .7s ease-in-out infinite alternate;
+}
+.mbar:nth-child(1) { height: 5px;  animation-delay: 0s; }
+.mbar:nth-child(2) { height: 9px;  animation-delay: .18s; }
+.mbar:nth-child(3) { height: 7px;  animation-delay: .09s; }
+.mbar:nth-child(4) { height: 5px;  animation-delay: .27s; }
+@keyframes mbarBounce {
+  from { transform: scaleY(.3); }
+  to   { transform: scaleY(1); }
+}
+@keyframes musicGlow {
+  0%,100% { box-shadow: 0 4px 20px rgba(196,146,42,.2); }
+  50%      { box-shadow: 0 4px 28px rgba(196,146,42,.55); }
+}
+.music-btn.playing { animation: musicGlow 2s ease-in-out infinite; }
 
 /* ── Toast Notifications ────────────────────────────────────── */
 #toastContainer {

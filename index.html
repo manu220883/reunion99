@@ -330,17 +330,17 @@
         <input type="text" id="locationVoterName" placeholder="Your name (optional)" class="poll-name-input" maxlength="60">
       </div>
       <div class="poll-choices">
-        <button class="poll-choice" onclick="submitLocationVote('Bangalore')">
+        <button type="button" class="poll-choice" onclick="submitLocationVote('Bangalore')">
           <span class="choice-icon">📍</span>
           <span class="choice-label">Bangalore</span>
           <span class="choice-arrow">→</span>
         </button>
-        <button class="poll-choice" onclick="submitLocationVote('Bhadravathi')">
+        <button type="button" class="poll-choice" onclick="submitLocationVote('Bhadravathi')">
           <span class="choice-icon">📍</span>
           <span class="choice-label">Bhadravathi</span>
           <span class="choice-arrow">→</span>
         </button>
-        <button class="poll-choice" onclick="submitLocationVote('Either')">
+        <button type="button" class="poll-choice" onclick="submitLocationVote('Either')">
           <span class="choice-icon">❤️</span>
           <span class="choice-label">Either location works for me</span>
           <span class="choice-arrow">→</span>
@@ -376,27 +376,27 @@
         <input type="text" id="dateVoterName" placeholder="Your name (optional)" class="poll-name-input" maxlength="60">
       </div>
       <div class="poll-choices date-choices">
-        <button class="poll-choice date-choice" onclick="submitDateVote('Sat, Nov 14')">
+        <button type="button" class="poll-choice date-choice" onclick="submitDateVote('Sat, Nov 14')">
           <span class="choice-day">Saturday</span>
           <span class="choice-date">November 14</span>
         </button>
-        <button class="poll-choice date-choice" onclick="submitDateVote('Sun, Nov 15')">
+        <button type="button" class="poll-choice date-choice" onclick="submitDateVote('Sun, Nov 15')">
           <span class="choice-day">Sunday</span>
           <span class="choice-date">November 15</span>
         </button>
-        <button class="poll-choice date-choice" onclick="submitDateVote('Sat, Nov 21')">
+        <button type="button" class="poll-choice date-choice" onclick="submitDateVote('Sat, Nov 21')">
           <span class="choice-day">Saturday</span>
           <span class="choice-date">November 21</span>
         </button>
-        <button class="poll-choice date-choice" onclick="submitDateVote('Sun, Nov 22')">
+        <button type="button" class="poll-choice date-choice" onclick="submitDateVote('Sun, Nov 22')">
           <span class="choice-day">Sunday</span>
           <span class="choice-date">November 22</span>
         </button>
-        <button class="poll-choice date-choice" onclick="submitDateVote('Sat, Nov 28')">
+        <button type="button" class="poll-choice date-choice" onclick="submitDateVote('Sat, Nov 28')">
           <span class="choice-day">Saturday</span>
           <span class="choice-date">November 28</span>
         </button>
-        <button class="poll-choice date-choice" onclick="submitDateVote('Sun, Nov 29')">
+        <button type="button" class="poll-choice date-choice" onclick="submitDateVote('Sun, Nov 29')">
           <span class="choice-day">Sunday</span>
           <span class="choice-date">November 29</span>
         </button>
@@ -723,6 +723,22 @@
 </footer>
 
 
+<!-- Floating Music Player -->
+<div id="musicPlayer" class="music-player">
+  <div class="music-tooltip" id="musicTooltip">♫ Raktha Sambandhagala</div>
+  <button type="button" class="music-btn" id="musicBtn" onclick="toggleMusic()" aria-label="Play nostalgic music">
+    <div class="music-vinyl" id="musicVinyl">
+      <div class="vinyl-label">🎵</div>
+    </div>
+    <div class="music-bars" id="musicBars">
+      <span class="mbar"></span><span class="mbar"></span><span class="mbar"></span><span class="mbar"></span>
+    </div>
+  </button>
+  <div id="ytContainer" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;left:-999px;top:0">
+    <div id="ytplayer"></div>
+  </div>
+</div>
+
 <!-- Floating WhatsApp button -->
 <a id="floatWhatsapp" class="float-whatsapp" href="#" onclick="shareOnWhatsApp();return false;" aria-label="Share on WhatsApp" title="Invite classmates on WhatsApp">
   <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28" aria-hidden="true">
@@ -735,5 +751,10 @@
 
 <script src="config.js"></script>
 <script src="script.js"></script>
+<script>
+  function onYouTubeIframeAPIReady() {
+    if (typeof initYTPlayer === "function") initYTPlayer();
+  }
+</script>
 </body>
 </html>

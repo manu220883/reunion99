@@ -24,6 +24,12 @@ function handleRequest(e) {
   out.setMimeType(ContentService.MimeType.JSON);
 
   try {
+    // Auto-create sheets if this is the first deployment (setupSheets() not yet run)
+    var _ss = SpreadsheetApp.getActiveSpreadsheet();
+    if (!_ss.getSheetByName("LocationVotes")) {
+      setupSheets();
+    }
+
     // Merge GET params and POST body params
     let p = {};
     if (e && e.parameter) p = Object.assign(p, e.parameter);
